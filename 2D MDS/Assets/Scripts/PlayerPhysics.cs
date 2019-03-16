@@ -56,13 +56,13 @@ public class PlayerPhysics : MonoBehaviour
             extraJumps = extraJumpsVariable;
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("w") && extraJumps > 0)
+        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("w") || Input.GetKeyDown("space")) && extraJumps > 0)
         {
             rb.velocity = Vector2.up * jumpForce;
             extraJumps--;
         }
 
-        else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("w") && extraJumps == 0 && isGrounded == true)
+        else if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("w") || Input.GetKeyDown("space")) && extraJumps == 0 && isGrounded == true)
         {
             rb.velocity = Vector2.up * jumpForce;
         }
