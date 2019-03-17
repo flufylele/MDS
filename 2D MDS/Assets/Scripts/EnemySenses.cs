@@ -9,6 +9,7 @@ public class EnemySenses : MonoBehaviour
     public float startingDistance;
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public bool facingRight = true;
     float fireRate;
     float nextFire;
 
@@ -26,8 +27,22 @@ public class EnemySenses : MonoBehaviour
         if(Vector2.Distance(transform.position, target.position) < startingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-            Shoot();
+
+            if (transform.position.x < target.position.x && facingRight == false)
+            {
+                Flip();
+            }
+            if (transform.position.x > target.position.x && facingRight == true)
+            {
+                Flip();
+            }
+
+                Shoot();
+
+            
         }
+
+
     }
 
     void Shoot()
@@ -38,6 +53,14 @@ public class EnemySenses : MonoBehaviour
             nextFire = Time.time + fireRate;
         }
         
+    }
+
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+
+        transform.Rotate(0f, 180f, 0f);
     }
 
 

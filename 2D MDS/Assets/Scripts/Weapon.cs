@@ -6,6 +6,8 @@ public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public float damage;
+    
 
     void Update()
     {

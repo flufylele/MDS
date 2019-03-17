@@ -26,7 +26,6 @@ public class BulletEnemy : MonoBehaviour
     {
         if (col.gameObject.name.Equals("Player"))
         {
-            Debug.Log("Hit!");
             Destroy(gameObject);
         }
     }
