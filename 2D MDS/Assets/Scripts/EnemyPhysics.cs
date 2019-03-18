@@ -6,7 +6,7 @@ public class EnemyPhysics : MonoBehaviour
 {
     public float life = 100f;
     public Weapon arma;
-
+    
 
 
     private void Start()
@@ -14,21 +14,24 @@ public class EnemyPhysics : MonoBehaviour
         arma = GameObject.FindGameObjectWithTag("PlayerGun").GetComponent<Weapon>();
     }
 
+   
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(life>0)
+        if (collision.tag == "Bullet")
         {
-            if (collision.tag == "Bullet")
+            if (life>0)
             {
                 life -= arma.damage;
                 Debug.Log(life);
             }
-        }
-        else
+             else
         {
             Destroy(gameObject);
         }
         
+        }
+       
 
     }
 

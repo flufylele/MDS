@@ -15,15 +15,25 @@ public class EnemySenses : MonoBehaviour
 
     private Transform target;
 
+    private bool isGrounded;
+    public Transform groundCheck;
+    public float checkRadius;
+    public LayerMask whatIsGround;
+
+    private Animator anim;
+
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         fireRate = 1f;
         nextFire = Time.time;
+        anim= GetComponent<Animator>();
     }
 
     private void Update()
     {
+         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+
         if(Vector2.Distance(transform.position, target.position) < startingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
@@ -37,7 +47,12 @@ public class EnemySenses : MonoBehaviour
                 Flip();
             }
 
-                Shoot();
+            if (isGrounded == true)
+            {
+                anim.SetTrigger("Move");
+            }
+
+            Shoot();
 
             
         }
