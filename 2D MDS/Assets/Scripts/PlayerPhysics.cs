@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerPhysics : MonoBehaviour
 {
+
     public float speed;
     public float jumpForce;
     private float moveInput;
@@ -20,6 +21,7 @@ public class PlayerPhysics : MonoBehaviour
 
     private Rigidbody2D rb;
     private SpriteRenderer sr;
+
 
     void Start()
     {
@@ -72,6 +74,11 @@ public class PlayerPhysics : MonoBehaviour
         if(moveInput>0 || moveInput < 0 && isGrounded == true)
         {
             anim.SetTrigger("Move");
+        }
+
+        if (transform.position.y < -13)
+        {
+            FindObjectOfType<GameManager>().GameOver();
         }
     }
 

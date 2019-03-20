@@ -47,10 +47,7 @@ public class EnemySenses : MonoBehaviour
                 Flip();
             }
 
-            if (isGrounded == true)
-            {
-                anim.SetTrigger("Move");
-            }
+ 
 
             Shoot();
 
