@@ -28,6 +28,10 @@ public class BulletEnemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (col.tag == "Hit")
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

@@ -23,7 +23,6 @@ public class EnemyPhysics : MonoBehaviour
             if (life>0)
             {
                 life -= arma.damage;
-                Debug.Log(life);
             }
              else
         {

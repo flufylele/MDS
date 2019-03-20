@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerPhysics : MonoBehaviour
 {
+    public float life = 100;
+    public WeaponEnemy armaInamic;
 
     public float speed;
     public float jumpForce;
@@ -25,6 +27,7 @@ public class PlayerPhysics : MonoBehaviour
 
     void Start()
     {
+        armaInamic = GameObject.FindGameObjectWithTag("EnemyGun").GetComponent<WeaponEnemy>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -71,10 +74,7 @@ public class PlayerPhysics : MonoBehaviour
 
         moveInput = Input.GetAxisRaw("Horizontal");
 
-        if(moveInput>0 || moveInput < 0 && isGrounded == true)
-        {
-            anim.SetTrigger("Move");
-        }
+
 
         if (transform.position.y < -13)
         {
@@ -88,6 +88,26 @@ public class PlayerPhysics : MonoBehaviour
         facingRight = !facingRight;
 
         transform.Rotate(0f, 180f, 0f);
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "BulletEnemy")
+        {
+            if (life > 0)
+            {
+                life -= armaInamic.damage;
+                Debug.Log(life);
+            }
+            else
+            {
+                FindObjectOfType<GameManager>().GameOver();
+            }
+
+        }
+
+
     }
 
 }
