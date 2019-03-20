@@ -1208,7 +1208,7 @@ Animator:
   m_GameObject: {fileID: 1165164234}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e73c2a1872a539c4f9390f620f5f7b7e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5e0db44dd6718c848bd6f420b6e115e9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1422,7 +1422,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441657421}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.09, y: -2.07, z: 0}
+  m_LocalPosition: {x: -1.09, y: -1.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1165164235}
@@ -1647,16 +1647,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1165164235}
     m_Modifications:
-    - target: {fileID: 7786622816853958290, guid: 480c8110a554202468cd2022b52f5c72,
-        type: 3}
-      propertyPath: m_Name
-      value: Gun
-      objectReference: {fileID: 0}
-    - target: {fileID: 7786622816853958290, guid: 480c8110a554202468cd2022b52f5c72,
-        type: 3}
-      propertyPath: m_TagString
-      value: PlayerGun
-      objectReference: {fileID: 0}
     - target: {fileID: 7786622816853958291, guid: 480c8110a554202468cd2022b52f5c72,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1721,6 +1711,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786622816853958290, guid: 480c8110a554202468cd2022b52f5c72,
+        type: 3}
+      propertyPath: m_Name
+      value: Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786622816853958290, guid: 480c8110a554202468cd2022b52f5c72,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerGun
       objectReference: {fileID: 0}
     - target: {fileID: 7786622816853958294, guid: 480c8110a554202468cd2022b52f5c72,
         type: 3}

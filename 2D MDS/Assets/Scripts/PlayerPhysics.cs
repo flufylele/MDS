@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerPhysics : MonoBehaviour
 {
@@ -19,10 +20,13 @@ public class PlayerPhysics : MonoBehaviour
     private int extraJumps;
     public int extraJumpsVariable;
     private Animator anim;
+    
 
 
     private Rigidbody2D rb;
     private SpriteRenderer sr;
+
+  
 
 
     void Start()
@@ -61,17 +65,20 @@ public class PlayerPhysics : MonoBehaviour
         if (isGrounded == true)
         {
             extraJumps = extraJumpsVariable;
+            anim.SetBool("IsJumping", false);
         }
 
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("w") || Input.GetKeyDown("space")) && extraJumps > 0)
         {
             rb.velocity = Vector2.up * jumpForce;
             extraJumps--;
+            anim.SetBool("IsJumping", true);
         }
 
         else if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("w") || Input.GetKeyDown("space")) && extraJumps == 0 && isGrounded == true)
         {
             rb.velocity = Vector2.up * jumpForce;
+            anim.SetBool("IsJumping", true);
         }
 
         moveInput = Input.GetAxisRaw("Horizontal");
@@ -111,5 +118,6 @@ public class PlayerPhysics : MonoBehaviour
 
 
     }
+
 
 }
