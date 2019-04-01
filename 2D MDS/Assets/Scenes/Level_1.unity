@@ -1445,7 +1445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40bb37a9aac2c34459ec37270973a368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  extraJumps: 2
+  extraJumpsVariable: 2
   speed: 20
   jumpForce: 40
   groundCheck: {fileID: 1441657422}
