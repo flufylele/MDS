@@ -5,35 +5,32 @@ using UnityEngine.Events;
 
 public class PlayerPhysics : MonoBehaviour
 {
-    public float life = 100;
-    public WeaponEnemy armaInamic;
-
-    public float speed;
-    public float jumpForce;
     private float moveInput;
     private bool facingRight = true;
+    private Animator anim;
+    private Rigidbody2D rb;
+    [SerializeField]
+    private int extraJumpsVariable;
+    private int extraJumps;
 
-    private bool isGrounded;
+
+    [Header("Character move forces")]
+    [SerializeField]
+    private float speed=20;
+    [SerializeField]
+    private float jumpForce=40;
+
+    [Header("Ground check")]
     public Transform groundCheck;
+    private bool isGrounded;
     public float checkRadius;
     public LayerMask whatIsGround;
-    private int extraJumps;
-    public int extraJumpsVariable;
-    private Animator anim;
     
-
-
-    private Rigidbody2D rb;
-    private SpriteRenderer sr;
-
-  
 
 
     void Start()
     {
-        armaInamic = GameObject.FindGameObjectWithTag("EnemyGun").GetComponent<WeaponEnemy>();
         rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
     }
 
@@ -64,8 +61,8 @@ public class PlayerPhysics : MonoBehaviour
     {
         if (isGrounded == true)
         {
-            extraJumps = extraJumpsVariable;
             anim.SetBool("IsJumping", false);
+            extraJumps = extraJumpsVariable;
         }
 
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("w") || Input.GetKeyDown("space")) && extraJumps > 0)
@@ -100,24 +97,7 @@ public class PlayerPhysics : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "BulletEnemy")
-        {
-            if (life > 0)
-            {
-                life -= armaInamic.damage;
-                Debug.Log(life);
-            }
-            else
-            {
-                FindObjectOfType<GameManager>().GameOver();
-            }
 
-        }
-
-
-    }
 
 
 }

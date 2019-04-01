@@ -11,14 +11,14 @@ public class EnemySenses : MonoBehaviour
     public GameObject bulletPrefab;
     public bool facingRight = true;
     float fireRate;
-    float nextFire;
+
+    [SerializeField]
+    private float nextFire;
 
     private Transform target;
 
-    private bool isGrounded;
-    public Transform groundCheck;
-    public float checkRadius;
-    public LayerMask whatIsGround;
+
+
 
     private Animator anim;
 
@@ -32,7 +32,7 @@ public class EnemySenses : MonoBehaviour
 
     private void Update()
     {
-         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+         
 
         if(Vector2.Distance(transform.position, target.position) < startingDistance)
         {

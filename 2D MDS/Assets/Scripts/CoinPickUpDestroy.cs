@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinPickUp : MonoBehaviour
+public class CoinPickUpDestroy : MonoBehaviour
 {
     public float value;
 

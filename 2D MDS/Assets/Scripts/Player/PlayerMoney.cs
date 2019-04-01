@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerMoney : MonoBehaviour
 {
     private float money = 0;
-    private CoinPickUp coin;
+    private CoinPickUpDestroy coin;
 
 
     private void Start()
     {
-        coin = GameObject.FindGameObjectWithTag("Coin").GetComponent<CoinPickUp>();
+        coin = GameObject.FindGameObjectWithTag("Coin").GetComponent<CoinPickUpDestroy>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
