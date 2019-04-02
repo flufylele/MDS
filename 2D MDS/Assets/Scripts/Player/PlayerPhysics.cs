@@ -9,9 +9,7 @@ public class PlayerPhysics : MonoBehaviour
     private bool facingRight = true;
     private Animator anim;
     private Rigidbody2D rb;
-    [SerializeField]
-    private int extraJumpsVariable;
-    private int extraJumps;
+
 
 
     [Header("Character move forces")]
@@ -21,10 +19,11 @@ public class PlayerPhysics : MonoBehaviour
     private float jumpForce=40;
 
     [Header("Ground check")]
-    public Transform groundCheck;
+    [SerializeField]
     private bool isGrounded;
-    public float checkRadius;
-    public LayerMask whatIsGround;
+    [SerializeField]
+    private bool extraJump;
+
     
 
 
@@ -32,11 +31,13 @@ public class PlayerPhysics : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        isGrounded = true;
+        extraJump = true;
     }
 
     void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+        
 
         moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
@@ -54,29 +55,29 @@ public class PlayerPhysics : MonoBehaviour
 
         anim.SetFloat("Speed", Mathf.Abs(moveInput));
 
+  
     }
 
 
     void Update()
     {
-        if (isGrounded == true)
-        {
-            anim.SetBool("IsJumping", false);
-            extraJumps = extraJumpsVariable;
-        }
+        
 
-        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("w") || Input.GetKeyDown("space")) && extraJumps > 0)
-        {
-            rb.velocity = Vector2.up * jumpForce;
-            extraJumps--;
-            anim.SetBool("IsJumping", true);
-        }
-
-        else if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("w") || Input.GetKeyDown("space")) && extraJumps == 0 && isGrounded == true)
+        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("w") || Input.GetKeyDown("space")) && isGrounded==true)
         {
             rb.velocity = Vector2.up * jumpForce;
             anim.SetBool("IsJumping", true);
+            isGrounded = false;
+
         }
+
+        else if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("w") || Input.GetKeyDown("space")) && isGrounded == false && extraJump == true)
+        {
+            rb.velocity = Vector2.up * jumpForce;
+            extraJump = false;
+
+        }
+
 
         moveInput = Input.GetAxisRaw("Horizontal");
 
@@ -89,13 +90,25 @@ public class PlayerPhysics : MonoBehaviour
     }
 
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Platform")
+        {
+            isGrounded = true;
+            extraJump = true;
+            anim.SetBool("IsJumping", false);
+        }
+    }
+
+
+
+
     void Flip()
     {
         facingRight = !facingRight;
 
         transform.Rotate(0f, 180f, 0f);
     }
-
 
 
 

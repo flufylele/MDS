@@ -1,28 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class PlayerLife : MonoBehaviour
 {
     [SerializeField]
-    private float life;
-
+    private float startingLife=100;
+    private float currentLife;
+    [SerializeField]
+    private Image healthBar;
     private WeaponEnemy armaInamic;
+ 
 
     private void Start()
     {
-        armaInamic = GameObject.FindGameObjectWithTag("EnemyGun").GetComponent<WeaponEnemy>();
+        armaInamic = GameObject.FindGameObjectWithTag("Enemy").GetComponent<WeaponEnemy>();
+        currentLife = startingLife;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "BulletEnemy")
         {
-            if (life > 0)
+            if (currentLife > 0.01)
             {
-                life -= armaInamic.damage;
-                Debug.Log(life);
+                currentLife -= armaInamic.damage;
+                healthBar.fillAmount = currentLife / startingLife;
             }
             else
             {
@@ -33,4 +38,6 @@ public class PlayerLife : MonoBehaviour
 
 
     }
+
+
 }

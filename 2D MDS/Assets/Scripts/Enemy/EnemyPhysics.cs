@@ -1,17 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyPhysics : MonoBehaviour
 {
-    public float life = 100f;
-    public Weapon arma;
+    public float startinglife = 100f;
+    private float currentLife;
+    private Weapon arma;
+    [SerializeField]
+    private Image healthBar;
     
 
 
     private void Start()
     {
         arma = GameObject.FindGameObjectWithTag("PlayerGun").GetComponent<Weapon>();
+        currentLife = startinglife;
     }
 
    
@@ -20,9 +25,10 @@ public class EnemyPhysics : MonoBehaviour
     {
         if (collision.tag == "Bullet")
         {
-            if (life>0)
+            if (currentLife>0.01)
             {
-                life -= arma.damage;
+                currentLife -= arma.damage;
+                healthBar.fillAmount = currentLife / startinglife;
             }
              else
         {
