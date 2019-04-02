@@ -22,16 +22,12 @@ public class BulletEnemy : MonoBehaviour
         Destroy(gameObject, 3f);
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (col.gameObject.name.Equals("Player"))
+        if (collision.tag == "Hit" || collision.tag == "Platform" || collision.tag == "Player")
         {
             Destroy(gameObject);
         }
-        if (col.tag == "Hit")
-        {
-            Destroy(gameObject);
-        }
-    }
 
+    }
 }

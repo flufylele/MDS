@@ -20,14 +20,13 @@ public class EnemySenses : MonoBehaviour
 
 
 
-    private Animator anim;
+
 
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         fireRate = 1f;
         nextFire = Time.time;
-        anim= GetComponent<Animator>();
     }
 
     private void Update()
@@ -60,8 +59,19 @@ public class EnemySenses : MonoBehaviour
     void Shoot()
     {   
         if(Time.time > nextFire)
-        {
-            Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+        {   
+            if(facingRight == true)
+            {
+                Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+            }
+            else
+            {
+                GameObject newObject = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+                Vector3 scale = newObject.transform.localScale;
+                scale.x *= -1;
+                newObject.transform.localScale = scale;
+            }
+           
             nextFire = Time.time + fireRate;
         }
         
