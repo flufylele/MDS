@@ -25,15 +25,15 @@ public class EnemyPhysics : MonoBehaviour
     {
         if (collision.tag == "Bullet")
         {
-            if (currentLife>0.01)
+            if (currentLife>0)
             {
                 currentLife -= arma.damage;
                 healthBar.fillAmount = currentLife / startinglife;
             }
-             else
-        {
-            Destroy(gameObject);
-        }
+            if(currentLife == 0)
+            {
+                Destroy(gameObject);
+            }
         
         }
        

@@ -11,6 +11,8 @@ public class PlayerLife : MonoBehaviour
     private float currentLife;
     [SerializeField]
     private Image healthBar;
+    [SerializeField]
+    private Text healthNumber;
     private WeaponEnemy armaInamic;
  
 
@@ -20,16 +22,21 @@ public class PlayerLife : MonoBehaviour
         currentLife = startingLife;
     }
 
+    private void Update()
+    {
+        healthNumber.text = currentLife.ToString() + " / " + startingLife.ToString();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "BulletEnemy")
         {
-            if (currentLife > 0.01)
+            if (currentLife > 0)
             {
                 currentLife -= armaInamic.damage;
                 healthBar.fillAmount = currentLife / startingLife;
             }
-            else
+            if(currentLife == 0)
             {
                 FindObjectOfType<GameManager>().GameOver();
             }
