@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerLife : MonoBehaviour
 {
-    [SerializeField]
-    private float startingLife=100;
+    public static float startingLife=100;
     private float currentLife;
     [SerializeField]
     private Image healthBar;

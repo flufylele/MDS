@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     bool gameHasEnded = false;
     public PlayerPhysics script;
     public float restartDelay = 2f;
+    public static int lastSceneIndex;
 
 
     public void GameOver()
@@ -31,8 +32,10 @@ public class GameManager : MonoBehaviour
 
     public void CompleteLevel()
     {
-        Invoke("Restart", restartDelay);
+        lastSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene("Shop");
     }
 
+  
 
 }

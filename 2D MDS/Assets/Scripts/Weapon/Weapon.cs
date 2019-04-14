@@ -6,12 +6,19 @@ public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-    public float damage;
-    
+    public static float damage = 20;
+    public static float fireRate = 0.5f;
+    private float nextFire;
+
+
+    private void Start()
+    {
+        nextFire = Time.time;
+    }
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
             Shoot();
         }
@@ -22,7 +29,11 @@ public class Weapon : MonoBehaviour
     {
         // shooting logic
 
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        if (Time.time > nextFire)
+        {
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            nextFire = Time.time + fireRate;
+        }
 
     }
 }
