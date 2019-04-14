@@ -7,16 +7,16 @@ public class EnemyPhysics : MonoBehaviour
 {
     public float startinglife = 100f;
     private float currentLife;
-    private Weapon arma;
     [SerializeField]
     private Image healthBar;
+    private float value=20;
     
 
 
     private void Start()
     {
-        arma = GameObject.FindGameObjectWithTag("PlayerGun").GetComponent<Weapon>();
         currentLife = startinglife;
+        healthBar.fillAmount = currentLife / startinglife;
     }
 
    
@@ -27,12 +27,15 @@ public class EnemyPhysics : MonoBehaviour
         {
             if (currentLife>0)
             {
-                currentLife -= arma.damage;
+                Debug.Log(Weapon.damage);
+                currentLife -= Weapon.damage;
                 healthBar.fillAmount = currentLife / startinglife;
             }
-            if(currentLife == 0)
+            if(currentLife <=0)
             {
                 Destroy(gameObject);
+                PlayerMoney.money += value;
+
             }
         
         }

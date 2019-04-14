@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerMoney : MonoBehaviour
 {
-    private float money = 0;
+    public static float money = 5000;
     private CoinPickUpDestroy coin;
     [SerializeField]
     private Text ui;
@@ -25,7 +25,6 @@ public class PlayerMoney : MonoBehaviour
         if(collision.gameObject.tag == "Coin")
         {
             money += coin.value;
-            Debug.Log(money);
         }
     }
 
