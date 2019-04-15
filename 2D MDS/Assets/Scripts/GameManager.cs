@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
         {
             gameHasEnded = true;
             script.enabled = false;
-            Invoke("Restart", restartDelay);
+            
         }
 
 

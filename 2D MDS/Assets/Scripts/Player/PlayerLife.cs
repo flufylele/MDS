@@ -13,6 +13,7 @@ public class PlayerLife : MonoBehaviour
     [SerializeField]
     private Text healthNumber;
     private WeaponEnemy armaInamic;
+    public GameObject deathSceneUI;
  
 
     private void Start()
@@ -38,6 +39,8 @@ public class PlayerLife : MonoBehaviour
             if(currentLife == 0)
             {
                 FindObjectOfType<GameManager>().GameOver();
+                deathSceneUI.SetActive(true);
+
             }
 
         }
