@@ -42,6 +42,8 @@ public class EscapeMenu : MonoBehaviour
         
         Time.timeScale = 1f;
         gameIsPaused = false;
+        FindObjectOfType<Audiomanager>().Stop("Chapter1Theme");
+        FindObjectOfType<Audiomanager>().Play("IntroTheme");
         SceneManager.LoadScene("MainMenu");
     }
 

@@ -16,6 +16,7 @@ public class EnemySenses : MonoBehaviour
     private float nextFire;
 
     private Transform target;
+    public static bool enable = true;
 
 
 
@@ -24,6 +25,7 @@ public class EnemySenses : MonoBehaviour
 
     private void Start()
     {
+        enable = true;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         fireRate = 1f;
         nextFire = Time.time;
@@ -31,27 +33,26 @@ public class EnemySenses : MonoBehaviour
 
     private void Update()
     {
-         
-
-        if(Vector2.Distance(transform.position, target.position) < startingDistance)
+         if(enable == true)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-
-            if (transform.position.x < target.position.x && facingRight == false)
+            if (Vector2.Distance(transform.position, target.position) < startingDistance)
             {
-                Flip();
+                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+
+                if (transform.position.x < target.position.x && facingRight == false)
+                {
+                    Flip();
+                }
+                if (transform.position.x > target.position.x && facingRight == true)
+                {
+                    Flip();
+                }
+
+                Shoot();
             }
-            if (transform.position.x > target.position.x && facingRight == true)
-            {
-                Flip();
-            }
-
- 
-
-            Shoot();
-
-            
         }
+
+        
 
 
     }

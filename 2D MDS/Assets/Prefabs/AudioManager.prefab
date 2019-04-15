@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3237452151590098090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3237452151590098088}
+  - component: {fileID: 3237452151590098089}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3237452151590098088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3237452151590098090}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3237452151590098089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3237452151590098090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e4d0ea8d1479e47b603fb1729d7749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Death
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 55309d7db174a584a8968839ba7e61b9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+  - name: Shot
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 02c9c591a2b8fb24385dfc5177f8e8c4, type: 3}
+    volume: 0.434
+    pitch: 1
+    loop: 0
+  - name: Chapter1Theme
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 4342c240b9b486e4489dfc1715972284, type: 3}
+    volume: 0.055
+    pitch: 1
+    loop: 1
+  - name: Fireball
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: d8d11a854944f9644af679549f0fa3bf, type: 3}
+    volume: 0.407
+    pitch: 1
+    loop: 0
+  - name: CoinPickup
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: bae7b6ce6f2e68f4cbf4e10084fe0fea, type: 3}
+    volume: 0.407
+    pitch: 1
+    loop: 0
+  - name: FireballExplosion
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 7bf72f70b89f7554aa13c8dd2e77215a, type: 3}
+    volume: 0.159
+    pitch: 1
+    loop: 0
+  - name: IntroTheme
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 171797449685d1e4588234e6d949a202, type: 3}
+    volume: 0.09
+    pitch: 1
+    loop: 1
+  - name: EnemyDeath
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 80e721e6083b8a946b482ea38a33fb21, type: 3}
+    volume: 0.883
+    pitch: 1
+    loop: 0
+  - name: ShotImpact
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: e188b21ac62895e4ab32dc187984a530, type: 3}
+    volume: 0.151
+    pitch: 1
+    loop: 0
+  - name: Jump
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 2454e1e4c6e93354f9de9c8d2abd4dba, type: 3}
+    volume: 0.151
+    pitch: 1
+    loop: 0
+  - name: ShotImpact
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: e188b21ac62895e4ab32dc187984a530, type: 3}
+    volume: 0.151
+    pitch: 1
+    loop: 0
+  - name: ShotImpact
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: e188b21ac62895e4ab32dc187984a530, type: 3}
+    volume: 0.151
+    pitch: 1
+    loop: 0
+  - name: ShotImpact
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: e188b21ac62895e4ab32dc187984a530, type: 3}
+    volume: 0.151
+    pitch: 1
+    loop: 0
+  - name: ShotImpact
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: e188b21ac62895e4ab32dc187984a530, type: 3}
+    volume: 0.151
+    pitch: 1
+    loop: 0
+  - name: ShotImpact
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: e188b21ac62895e4ab32dc187984a530, type: 3}
+    volume: 0.151
+    pitch: 1
+    loop: 0

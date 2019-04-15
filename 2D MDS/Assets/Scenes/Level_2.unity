@@ -2059,6 +2059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   script: {fileID: 1165164239}
+  script2: {fileID: 0}
   restartDelay: 2
 --- !u!4 &1034630668
 Transform:

@@ -65,6 +65,7 @@ public class PlayerPhysics : MonoBehaviour
 
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("w") || Input.GetKeyDown("space")) && isGrounded==true)
         {
+            FindObjectOfType<Audiomanager>().Play("Jump");
             rb.velocity = Vector2.up * jumpForce;
             anim.SetBool("IsJumping", true);
             isGrounded = false;
@@ -73,6 +74,7 @@ public class PlayerPhysics : MonoBehaviour
 
         else if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("w") || Input.GetKeyDown("space")) && isGrounded == false && extraJump == true)
         {
+            FindObjectOfType<Audiomanager>().Play("Jump");
             rb.velocity = Vector2.up * jumpForce;
             extraJump = false;
 

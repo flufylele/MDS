@@ -10,6 +10,7 @@ public class CoinPickUpDestroy : MonoBehaviour
     {
         if( collision.gameObject.tag == "Player")
         {
+            FindObjectOfType<Audiomanager>().Play("CoinPickup");
             Destroy(gameObject);
         }
     }

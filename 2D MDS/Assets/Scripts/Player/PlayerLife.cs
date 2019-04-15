@@ -14,6 +14,7 @@ public class PlayerLife : MonoBehaviour
     private Text healthNumber;
     private WeaponEnemy armaInamic;
     public GameObject deathSceneUI;
+    
  
 
     private void Start()
@@ -25,6 +26,16 @@ public class PlayerLife : MonoBehaviour
     private void Update()
     {
         healthNumber.text = currentLife.ToString() + " / " + startingLife.ToString();
+
+        if (transform.position.y < -5)
+        {
+            FindObjectOfType<GameManager>().GameOver();
+            deathSceneUI.SetActive(true);
+            FindObjectOfType<Audiomanager>().Stop("Chapter1Theme");
+            FindObjectOfType<Audiomanager>().Play("Death");
+            Vector3 temp = new Vector3(0, 1000000000000f, 0);
+            transform.position += temp;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,10 +47,11 @@ public class PlayerLife : MonoBehaviour
                 currentLife -= armaInamic.damage;
                 healthBar.fillAmount = currentLife / startingLife;
             }
-            if(currentLife == 0)
+            if(currentLife <= 0)
             {
                 FindObjectOfType<GameManager>().GameOver();
                 deathSceneUI.SetActive(true);
+                FindObjectOfType<Audiomanager>().Play("Death");
 
             }
 

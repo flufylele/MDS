@@ -19,6 +19,7 @@ public class BulletEnemy : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         moveDirection = (target.position - transform.position).normalized * moveSpeed;
         rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
+        FindObjectOfType<Audiomanager>().Play("Fireball");
         Destroy(gameObject, 3f);
     }
 
@@ -26,6 +27,7 @@ public class BulletEnemy : MonoBehaviour
     {
         if (collision.tag == "Hit" || collision.tag == "Platform" || collision.tag == "Player")
         {
+            FindObjectOfType<Audiomanager>().Play("FireballExplosion");
             Destroy(gameObject);
         }
 

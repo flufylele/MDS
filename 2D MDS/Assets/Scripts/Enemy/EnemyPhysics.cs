@@ -33,6 +33,7 @@ public class EnemyPhysics : MonoBehaviour
             }
             if(currentLife <=0)
             {
+                FindObjectOfType<Audiomanager>().Play("EnemyDeath");
                 Destroy(gameObject);
                 PlayerMoney.money += value;
 

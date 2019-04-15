@@ -1,11 +1,13 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
 
     bool gameHasEnded = false;
     public PlayerPhysics script;
+    public Weapon script2;
     public float restartDelay = 2f;
     public static int lastSceneIndex;
 
@@ -16,7 +18,8 @@ public class GameManager : MonoBehaviour
         {
             gameHasEnded = true;
             script.enabled = false;
-            
+            script2.enabled = false;
+            EnemySenses.enable = false;
         }
 
 
