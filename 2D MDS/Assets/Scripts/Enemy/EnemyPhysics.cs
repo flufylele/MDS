@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class EnemyPhysics : MonoBehaviour
-{
-    public float startinglife = 100f;
+{   [SerializeField]
+    public float startinglife = 50f;
     private float currentLife;
     [SerializeField]
     private Image healthBar;

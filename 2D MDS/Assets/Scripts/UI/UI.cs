@@ -35,14 +35,14 @@ public class UI : MonoBehaviour
 
     public void upgradeFireRate()
     {
-        if(PlayerMoney.money > 50 && Weapon.fireRate > 0.05)
+        if(PlayerMoney.money >= 50 && Weapon.fireRate >= 0.09)
         {
             Weapon.fireRate -= 0.05f;
             PlayerMoney.money -= 50;
             currentFireRate.text = Weapon.fireRate.ToString();
         }
 
-        else
+        else if (PlayerMoney.money >= 50 && Weapon.fireRate > 0.04 && Weapon.fireRate <0.08)
         {
             currentFireRate.text = "MAX";
         }

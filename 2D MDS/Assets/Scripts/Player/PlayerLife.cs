@@ -46,14 +46,17 @@ public class PlayerLife : MonoBehaviour
             {
                 currentLife -= armaInamic.damage;
                 healthBar.fillAmount = currentLife / startingLife;
-            }
-            if(currentLife <= 0)
-            {
-                FindObjectOfType<GameManager>().GameOver();
-                deathSceneUI.SetActive(true);
-                FindObjectOfType<Audiomanager>().Play("Death");
+                if (currentLife <= 0)
+                {
+                    FindObjectOfType<GameManager>().GameOver();
+                    deathSceneUI.SetActive(true);
+                    FindObjectOfType<Audiomanager>().Stop("Chapter1Theme");
+                    FindObjectOfType<Audiomanager>().Stop("BossTheme");
+                    FindObjectOfType<Audiomanager>().Play("Death");
 
+                }
             }
+
 
         }
 

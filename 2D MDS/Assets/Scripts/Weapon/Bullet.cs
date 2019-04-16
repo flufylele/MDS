@@ -11,9 +11,10 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        FindObjectOfType<Audiomanager>().Play("Shot");
+        
         rb.velocity = transform.right * speed;
         Destroy(gameObject, 3f);
+        FindObjectOfType<Audiomanager>().Play("Shot");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

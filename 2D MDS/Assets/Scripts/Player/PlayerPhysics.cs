@@ -83,10 +83,7 @@ public class PlayerPhysics : MonoBehaviour
 
         moveInput = Input.GetAxisRaw("Horizontal");
 
-        if (transform.position.y < -13)
-        {
-            FindObjectOfType<GameManager>().GameOver();
-        }
+
 
 
     }

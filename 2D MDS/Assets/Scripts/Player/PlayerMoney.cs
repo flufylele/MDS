@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerMoney : MonoBehaviour
 {
-    public static float money = 5000;
+    public static float money = 0;
     private CoinPickUpDestroy coin;
     [SerializeField]
     private Text ui;

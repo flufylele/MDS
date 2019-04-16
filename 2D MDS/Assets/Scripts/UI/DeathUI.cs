@@ -20,5 +20,6 @@ public class DeathUI : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         FindObjectOfType<Audiomanager>().Play("Chapter1Theme");
         FindObjectOfType<Audiomanager>().Stop("Death"); 
+        
     }
 }
