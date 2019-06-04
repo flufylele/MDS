@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class BulletEnemy : MonoBehaviour
 {
-
     public float moveSpeed = 7f;
-
-    Rigidbody2D rb;
-
-    public Transform target;
+    Rigidbody2D rb; // Bullet's rigidbody
+    public Transform target; 
     Vector2 moveDirection;
 
-    // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -25,7 +21,7 @@ public class BulletEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Hit" || collision.tag == "Platform" || collision.tag == "Player")
+        if (collision.tag == "Player" || collision.tag == "Platform")
         {
             FindObjectOfType<Audiomanager>().Play("FireballExplosion");
             Destroy(gameObject);

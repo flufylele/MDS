@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class FaceMouse : MonoBehaviour
 {
- 
-
     void Update()
     {
         faceMouse();
     }
 
-
     void faceMouse()
     {
-
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 
         difference.Normalize();

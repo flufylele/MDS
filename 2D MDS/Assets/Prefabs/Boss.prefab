@@ -307,7 +307,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8284662550255013519}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.8, y: 13.8, z: 0.09771085}
   m_LocalScale: {x: 15, y: 15, z: 1}
   m_Children:
@@ -403,7 +403,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7636957909584271657, guid: 55f5870403e28904597fcdc3d0fbfd69,
     type: 3}
   facingRight: 1
-  nextFire: 0
+  nextFire: -2
 --- !u!61 &280079277727792803
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -452,9 +452,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8284662550255013519}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bedd9a1d3cae4da40b271ab0535977db, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c43f4011a7a9df45b9ace6b4d8009de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startinglife: 50
-  healthBar: {fileID: 0}
-  Game_Manager: {fileID: 0}
+  startinglife: 2500
+  healthBar: {fileID: 4912136473303149043}
+  Game_Manager: {fileID: 3413451004889644519, guid: f9becd16dab488742b6b7665587d9927,
+    type: 3}

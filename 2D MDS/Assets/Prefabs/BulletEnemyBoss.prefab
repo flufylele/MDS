@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6763547389008671156}
   - component: {fileID: 7670477035369617252}
   - component: {fileID: 6283763475951595454}
-  - component: {fileID: 2126440764704864907}
   - component: {fileID: 5873338913339837026}
+  - component: {fileID: 2567280502975697595}
   m_Layer: 0
   m_Name: BulletEnemyBoss
   m_TagString: BulletEnemy
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 11d5497b56769b148a999bb4850c6e11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -103,20 +103,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &2126440764704864907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7636957909584271657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b788a80879455c48b9e9339dc122fc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 40
-  target: {fileID: 6056524672192809744, guid: eb8ed0e1690ac2b45b7e66856c0ea650, type: 3}
 --- !u!61 &5873338913339837026
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -143,3 +129,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.56, y: 2.56}
   m_EdgeRadius: 0
+--- !u!114 &2567280502975697595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7636957909584271657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af94ef48d1fa2b44d8a7a34869a5e7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 40
+  target: {fileID: 6056524672192809744, guid: eb8ed0e1690ac2b45b7e66856c0ea650, type: 3}

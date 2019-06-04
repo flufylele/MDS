@@ -16,20 +16,19 @@ public class EnemyPhysics : MonoBehaviour
     private void Start()
     {
         currentLife = startinglife;
-        healthBar.fillAmount = currentLife / startinglife;
+        healthBar.fillAmount = currentLife / startinglife; // Filling the health bar to maximum
     }
 
    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Bullet")
+        if (collision.tag == "Bullet" )
         {
             if (currentLife>0)
             {
-                Debug.Log(Weapon.damage);
-                currentLife -= Weapon.damage;
-                healthBar.fillAmount = currentLife / startinglife;
+                currentLife -= Weapon.damage; //enemy health - Player's damage
+                healthBar.fillAmount = currentLife / startinglife; // Updating the health bar everytime the enemy gets hit by the player
             }
             if(currentLife <=0)
             {

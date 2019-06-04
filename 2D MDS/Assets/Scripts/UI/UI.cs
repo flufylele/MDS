@@ -4,16 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
+//Shop UI
 public class UI : MonoBehaviour
 {
-    [SerializeField]
-    private Text currentMoney;
-    [SerializeField]
-    private Text currentFireRate;
-    [SerializeField]
-    private Text currentDamage;
-    [SerializeField]
-    private Text currentHealth;
+    [SerializeField] private Text currentMoney;
+    [SerializeField] private Text currentFireRate;
+    [SerializeField] private Text currentDamage;
+    [SerializeField] private Text currentHealth;
+    private float fireRatePrice = 100f;
+    private float damagePrice = 120f;
+    private float healthPrice = 75f;
 
 
     private void Start()
@@ -28,21 +29,20 @@ public class UI : MonoBehaviour
     {
         currentMoney.text = "Current money: " + PlayerMoney.money.ToString();
         currentDamage.text = Weapon.damage.ToString();
-        
         currentHealth.text = PlayerLife.startingLife.ToString();
     }
 
 
     public void upgradeFireRate()
     {
-        if(PlayerMoney.money >= 50 && Weapon.fireRate >= 0.09)
+        if(PlayerMoney.money >= fireRatePrice && Weapon.fireRate >= 0.09)
         {
             Weapon.fireRate -= 0.05f;
-            PlayerMoney.money -= 50;
+            PlayerMoney.money -= fireRatePrice;
             currentFireRate.text = Weapon.fireRate.ToString();
         }
 
-        else if (PlayerMoney.money >= 50 && Weapon.fireRate > 0.04 && Weapon.fireRate <0.08)
+        else if (PlayerMoney.money >= fireRatePrice && Weapon.fireRate > 0.04 && Weapon.fireRate <0.08) // Last upgrade
         {
             currentFireRate.text = "MAX";
         }
@@ -51,19 +51,19 @@ public class UI : MonoBehaviour
 
     public void upgradeDamage()
     {
-        if(PlayerMoney.money > 35)
+        if(PlayerMoney.money > damagePrice)
         {
             Weapon.damage += 15;
-            PlayerMoney.money -= 35;
+            PlayerMoney.money -= damagePrice;
         }
     }
 
     public void upgradeHealth()
     {
-        if(PlayerMoney.money > 35)
+        if(PlayerMoney.money > healthPrice)
         {
             PlayerLife.startingLife += 20;
-            PlayerMoney.money -= 35;
+            PlayerMoney.money -= healthPrice;
         }
     }
 

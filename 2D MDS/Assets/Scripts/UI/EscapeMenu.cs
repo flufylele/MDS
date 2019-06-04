@@ -37,13 +37,12 @@ public class EscapeMenu : MonoBehaviour
         gameIsPaused = true;
     }
 
+    // Gets you back to main menu
     public void Menu()
     {
-        
         Time.timeScale = 1f;
         gameIsPaused = false;
-        FindObjectOfType<Audiomanager>().Stop("Chapter1Theme");
-        FindObjectOfType<Audiomanager>().Stop("BossTheme");
+        FindObjectOfType<Audiomanager>().StopAll();
         FindObjectOfType<Audiomanager>().Play("IntroTheme");
         SceneManager.LoadScene("MainMenu");
     }

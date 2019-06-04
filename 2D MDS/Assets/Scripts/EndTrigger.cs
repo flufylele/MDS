@@ -1,6 +1,6 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
+// Script used on portals
 public class EndTrigger : MonoBehaviour
 {
     public GameManager Game_Manager;

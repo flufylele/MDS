@@ -25,19 +25,20 @@ public class PlayerLife : MonoBehaviour
 
     private void Update()
     {
-        healthNumber.text = currentLife.ToString() + " / " + startingLife.ToString();
+        healthNumber.text = currentLife.ToString() + " / " + startingLife.ToString(); // Health ui text
 
-        if (transform.position.y < -5)
+        if (transform.position.y < -5) // Player dies if he falls off the map
         {
             FindObjectOfType<GameManager>().GameOver();
             deathSceneUI.SetActive(true);
-            FindObjectOfType<Audiomanager>().Stop("Chapter1Theme");
+            FindObjectOfType<Audiomanager>().StopAll();
             FindObjectOfType<Audiomanager>().Play("Death");
-            Vector3 temp = new Vector3(0, 1000000000000f, 0);
+            Vector3 temp = new Vector3(0, 1000000000000f, 0); // Since this if is in the update function if you don't teleport the player up the map to make him fall continiously the death menu will pop up continuously
             transform.position += temp;
         }
     }
 
+    // When the player gets hit logics
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "BulletEnemy")
@@ -50,8 +51,7 @@ public class PlayerLife : MonoBehaviour
                 {
                     FindObjectOfType<GameManager>().GameOver();
                     deathSceneUI.SetActive(true);
-                    FindObjectOfType<Audiomanager>().Stop("Chapter1Theme");
-                    FindObjectOfType<Audiomanager>().Stop("BossTheme");
+                    FindObjectOfType<Audiomanager>().StopAll();
                     FindObjectOfType<Audiomanager>().Play("Death");
 
                 }

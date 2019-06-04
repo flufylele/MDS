@@ -9,17 +9,15 @@ public class DeathUI : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene("MainMenu");
-        FindObjectOfType<Audiomanager>().Stop("Death");
+        FindObjectOfType<Audiomanager>().StopAll();
         FindObjectOfType<Audiomanager>().Play("IntroTheme");
-
-
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        FindObjectOfType<GameManager>().Restart();
+        FindObjectOfType<Audiomanager>().StopAll();
         FindObjectOfType<Audiomanager>().Play("Chapter1Theme");
-        FindObjectOfType<Audiomanager>().Stop("Death"); 
         
     }
 }

@@ -8,8 +8,8 @@ public class MainMenu : MonoBehaviour
 {
     public void startGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        FindObjectOfType<Audiomanager>().Stop("IntroTheme");
+        SceneManager.LoadScene("Level_1");
+        FindObjectOfType<Audiomanager>().StopAll();
         FindObjectOfType<Audiomanager>().Play("Chapter1Theme");
     }
 
@@ -18,5 +18,14 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void tutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+
+    public void mainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 
 }

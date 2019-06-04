@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class PlayerMoney : MonoBehaviour
 {
     public static float money = 0;
-    private CoinPickUpDestroy coin;
+    private CoinPickUpDestroy coin; // Script where the coin's value is
     [SerializeField]
-    private Text ui;
+    private Text ui; // Top left ui text
 
     private void Start()
     {
@@ -20,6 +20,7 @@ public class PlayerMoney : MonoBehaviour
         ui.text = "Coins: " + money.ToString();
     }
 
+    // Picking up coins
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Coin")

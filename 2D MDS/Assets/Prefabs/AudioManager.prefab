@@ -110,3 +110,4 @@ MonoBehaviour:
     volume: 0.061
     pitch: 1
     loop: 1
+  masterVolume: 1

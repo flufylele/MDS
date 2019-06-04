@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  startingDistance: 25
+  startingDistance: 40
   firePoint: {fileID: 4123459401766696474}
   bulletPrefab: {fileID: 5383467437208719096, guid: 323b342a1ac23b9478f0768103cc67ac,
     type: 3}
