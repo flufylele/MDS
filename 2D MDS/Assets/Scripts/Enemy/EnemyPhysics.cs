@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class EnemyPhysics : MonoBehaviour
-{
-    public float startinglife = 100f;
+{   [SerializeField]
+    public float startinglife = 50f;
     private float currentLife;
     [SerializeField]
     private Image healthBar;
@@ -16,23 +16,23 @@ public class EnemyPhysics : MonoBehaviour
     private void Start()
     {
         currentLife = startinglife;
-        healthBar.fillAmount = currentLife / startinglife;
+        healthBar.fillAmount = currentLife / startinglife; // Filling the health bar to maximum
     }
 
    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Bullet")
+        if (collision.tag == "Bullet" )
         {
             if (currentLife>0)
             {
-                Debug.Log(Weapon.damage);
-                currentLife -= Weapon.damage;
-                healthBar.fillAmount = currentLife / startinglife;
+                currentLife -= Weapon.damage; //enemy health - Player's damage
+                healthBar.fillAmount = currentLife / startinglife; // Updating the health bar everytime the enemy gets hit by the player
             }
             if(currentLife <=0)
             {
+                FindObjectOfType<Audiomanager>().Play("EnemyDeath");
                 Destroy(gameObject);
                 PlayerMoney.money += value;
 

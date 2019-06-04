@@ -7,7 +7,7 @@ public class EnemySenses : MonoBehaviour
 
     public float speed;
     public float startingDistance;
-    public Transform firePoint;
+    public Transform firePoint; // The place where the bullet will be instantiated from
     public GameObject bulletPrefab;
     public bool facingRight = true;
     float fireRate;
@@ -16,6 +16,7 @@ public class EnemySenses : MonoBehaviour
     private float nextFire;
 
     private Transform target;
+    public static bool enable = true; // variable used in the game manager when you die. this gets set to false so the enemies will stop shooting while you are dead
 
 
 
@@ -24,6 +25,7 @@ public class EnemySenses : MonoBehaviour
 
     private void Start()
     {
+        enable = true;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         fireRate = 1f;
         nextFire = Time.time;
@@ -31,40 +33,39 @@ public class EnemySenses : MonoBehaviour
 
     private void Update()
     {
-         
-
-        if(Vector2.Distance(transform.position, target.position) < startingDistance)
+         if(enable == true)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-
-            if (transform.position.x < target.position.x && facingRight == false)
+            if (Vector2.Distance(transform.position, target.position) < startingDistance) // if the player is in the enemy's radius
             {
-                Flip();
+                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime); // move towards the player
+
+                if (transform.position.x < target.position.x && facingRight == false) // Flip depending on the player's orientation (left or right)
+                {
+                    Flip();
+                }
+                if (transform.position.x > target.position.x && facingRight == true)
+                {
+                    Flip();
+                }
+
+                Shoot();
             }
-            if (transform.position.x > target.position.x && facingRight == true)
-            {
-                Flip();
-            }
-
- 
-
-            Shoot();
-
-            
         }
+
+        
 
 
     }
 
     void Shoot()
     {   
-        if(Time.time > nextFire)
+        if(Time.time > nextFire) // Shooting interval
         {   
-            if(facingRight == true)
+            if(facingRight == true) // The fireball prefab is only drawn from left to right so when the enemy is facing right it is ok to just instantiate it
             {
                 Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
             }
-            else
+            else // When he is facing left the fireball prefab has to be flipped
             {
                 GameObject newObject = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
                 Vector3 scale = newObject.transform.localScale;

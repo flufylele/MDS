@@ -4,28 +4,26 @@ using UnityEngine;
 
 public class BulletEnemy : MonoBehaviour
 {
-
     public float moveSpeed = 7f;
-
-    Rigidbody2D rb;
-
-    public Transform target;
+    Rigidbody2D rb; // Bullet's rigidbody
+    public Transform target; 
     Vector2 moveDirection;
 
-    // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         moveDirection = (target.position - transform.position).normalized * moveSpeed;
         rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
+        FindObjectOfType<Audiomanager>().Play("Fireball");
         Destroy(gameObject, 3f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Hit" || collision.tag == "Platform" || collision.tag == "Player")
+        if (collision.tag == "Player" || collision.tag == "Platform")
         {
+            FindObjectOfType<Audiomanager>().Play("FireballExplosion");
             Destroy(gameObject);
         }
 

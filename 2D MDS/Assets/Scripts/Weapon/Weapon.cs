@@ -10,7 +10,6 @@ public class Weapon : MonoBehaviour
     public static float fireRate = 0.5f;
     private float nextFire;
 
-
     private void Start()
     {
         nextFire = Time.time;
@@ -22,18 +21,14 @@ public class Weapon : MonoBehaviour
         {
             Shoot();
         }
-
     }
 
     void Shoot()
     {
-        // shooting logic
-
         if (Time.time > nextFire)
         {
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             nextFire = Time.time + fireRate;
         }
-
     }
 }

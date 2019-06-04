@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff6e39a377cb3948b6011f648363165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startinglife: 100
+  startinglife: 50
   healthBar: {fileID: 6831874462942806082}
 --- !u!114 &7502384595737978687
 MonoBehaviour:
@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  startingDistance: 25
+  startingDistance: 40
   firePoint: {fileID: 4123459401766696474}
   bulletPrefab: {fileID: 5383467437208719096, guid: 323b342a1ac23b9478f0768103cc67ac,
     type: 3}

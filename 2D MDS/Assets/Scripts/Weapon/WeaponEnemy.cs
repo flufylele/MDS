@@ -6,6 +6,4 @@ public class WeaponEnemy : MonoBehaviour
 {
     public float damage = 20;
 
-
-
 }
